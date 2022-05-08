@@ -1,5 +1,5 @@
 import pandas as pd
-import numpy as np
+import datetime
 
 db_path = 'I:\\Documentos\\Programacao\\Repos\\GitHub\\BotF1discord\\'
 
