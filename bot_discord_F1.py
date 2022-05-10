@@ -1,13 +1,15 @@
 import discord
 from discord.ext import commands
-from decouple import config
-import grandPrix as gp
+#from decouple import config
+import grandprix as gp
+import consultDatabase as cdb
 
 
 mainRoomID = 586582112388382731
 
 robot = commands.Bot("!")
 
+client = discord.Client()
 
 #Este é um evento que indica que o bot está pronto para ser executado
 @robot.event 
@@ -72,19 +74,33 @@ async def link(ctx):
     await channel.send(response)
 
 
-@robot.command(name="gpBahrein")
-async def gpBahrein(ctx):
-    username = ctx.author.name
+#@robot.command(name="gpBahrein")
+@robot.event
+async def on_message(msg):
     channel = robot.get_channel(586582112388382731)
-    gpName = "gpBahrein"
-    gpDate = ""
-    gpTime = ""
-    gpPolePosition = ""
-    gpWinner ="" #Se a data do GP for menor do que a data atual, igualmente para hora, ele deverá mostrar o vencedor
-    response = "***Grande Prêmio do Bahrein***\n**Data:** 08/05/2022\n**Horário (Brasília):** 16h30\n**Pole position:** N/A"
 
-    await channel.send(response)
+    if msg.author == robot.user:
+        return
+
+    if msg.content.notstartswith("!"):
+        return
+
+    listaGP = ["gpBahrein", "gpArábiaSaudita", "gpAustrália", "gpEmíliaRomanha", "gpMiami", "gpEspanha", "gpMônaco", "gpAzerbaijão", "gpCanadá", "gpInglaterra", "gpÁustria", "gpFrança", "gpHungria", "gpBélgica", "gpHolanda", "gpItália", "gpSingapura", "gpJapão", "gpEUA", "gpMéxico", "gpSãoPaulo", "gpAbuDhabi"]
+    if msg.content in listaGP:
+        msgg = msg.content
+        gpName = cdb.consultGP.consultGPname(msgg)
+        gpDate = cdb.consultGP.consultGPdate(msgg)
+        gpTime = cdb.consultGP.consultGPtime(msgg)
+        channel = robot.get_channel(586582112388382731)
+        link = r"https://www.band.uol.com.br/esportes/automobilismo/formula-1/ao-vivo"
+
+        response = f"***{gpName[5:]}***\n**Data:** {gpDate[5:]} (Ano-Mês-Dia)\n**Horário (Brasília):** {gpTime[5:]}\n**Link: **{link}"
+
+        await channel.send(response)
+    else:
+        await channel.send("mamou")
 
 
-TOKEN_DD = config("PRIVATETOKEN")
-robot.run(TOKEN_DD)
+
+#TOKEN_DD = config("PRIVATETOKEN")
+robot.run("OTY0NjAxNTEwMzA4NzQ5Mzg1.GqvhSD.YEndDsMOkVS8EQb5xOsxr_e5iiPUgMjbPuCMyo")
