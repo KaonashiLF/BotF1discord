@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import datetime
 
 db_path = 'I:\\Documentos\\Programacao\\Repos\\GitHub\\BotF1discord\\databases\\'
 

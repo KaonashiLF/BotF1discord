@@ -40,7 +40,7 @@ async def on_message(msg):
             channel = robot.get_channel(586582112388382731)
             link = r"https://www.band.uol.com.br/esportes/automobilismo/formula-1/ao-vivo"
 
-            response = f"***{gpName[5:]}***\n**Data:** {gpDate[5:]}\n**Horário (Brasília):** {gpTime[5:]}\n**Link: **{link}"
+            response = f"***{gpName[5:]}***\n**Data:** {gpDate[4:]}\n**Horário (Brasília):** {gpTime[5:]}\n**Link: **{link}"
 
             await channel.send(response)
 
