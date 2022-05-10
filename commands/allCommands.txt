@@ -1,3 +1,2 @@
-**!proximogp:** Comando que retorna informações sobre o próximo Grand Prix da Fórmula 1
 **!listagp:** Retorna a lista de todos os grande prêmios, trazendo informações de cada um deles.
 **!link:** Retorna o link para assistir a corrida Ao Vivo :)
