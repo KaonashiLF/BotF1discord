@@ -20,8 +20,6 @@ async def on_ready():
     await channel.send(startMessage)
 
 
-
-#@robot.command(name="gpBahrein")
 @robot.event
 async def on_message(msg):
     channel = robot.get_channel(586582112388382731)
