@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import datetime
 
-db_path = 'I:\\Documentos\\Programacao\\Repos\\GitHub\\BotF1discord\\databases\\'
+db_path = 'I:\Documentos\Programacao\Repos\GitHub\BotF1discord\databases\\'
 
 df = pd.read_excel(db_path+"main_database.xlsx",sheet_name="db_structuredDatas")
 

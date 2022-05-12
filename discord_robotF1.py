@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from decouple import config
+#from decouple import config
 import grandprix as gp
 import consultDatabase as cdb
 
@@ -83,5 +83,5 @@ async def on_message(msg):
 
 
 
-TOKEN_DD = config("PRIVATETOKEN")
-robot.run(TOKEN_DD)
+#TOKEN_DD = config("PRIVATETOKEN")
+robot.run("OTY0NjAxNTEwMzA4NzQ5Mzg1.GoSKkK.v7o-fOBHT7LXaBtvkd36q5zq9l-I8n07puXeBA")
